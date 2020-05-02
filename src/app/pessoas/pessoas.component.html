@@ -1,1 +1,19 @@
-<p>pessoas works!</p>
+<h1>Angular - Serviços</h1>
+<table border="1">
+  <tr>
+    <th>Id</th>
+    <th>Nome</th>
+    <th>E-mail</th>
+    <th>Detalhes</th>
+  </tr>
+  <tr *ngFor="let p of PessoasArray">
+    <td>{{ p.id }}</td>
+    <td>{{ p.name }}</td>
+    <td>{{ p.email }}</td>
+    <td><button (click)="detalhe(p.id)">Detalhes</button></td>
+  </tr>
+</table>
+<div *ngIf="detalhePessoa">
+  <h1>Detalhes da pessoa</h1>
+  <app-pessoas-detalhe [Pessoa]="pessoa" (atualizar)="receberAtualizacao($event)" ></app-pessoas-detalhe>
+</div>
